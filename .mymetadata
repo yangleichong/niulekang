@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-module
+  type="WEB"
+  name="nlk_crm_7a"
+  id="myeclipse.1465263411137"
+  context-root="/nlk_crm_7a"
+  j2ee-spec="5.0"
+  archive="nlk_crm_7a.war">
+  <attributes>
+    <attribute name="webrootdir" value="WebRoot" />
+  </attributes>
+</project-module>
+

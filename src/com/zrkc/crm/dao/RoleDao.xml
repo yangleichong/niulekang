@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zrkc.crm.dao.RoleDao">
+	<select id="findRole" resultType="com.zrkc.crm.model.Role">
+		select id,name 
+		from comp_role 
+		limit #{pager.from},#{pager.pageSize}
+	</select>
+	
+	<select id="countRole" resultType="int">
+		select count(*)
+		from comp_role 
+	</select>
+	<insert id="addRole">
+		insert into comp_role(name) 
+		values(#{role.name})
+	
+	</insert>
+	<select id="findRoleById"  resultType="com.zrkc.crm.model.Role">
+		select id,name 
+		from comp_role 
+		where id=#{roleId}
+	</select>
+	<update id="updateRole">
+		update comp_role 
+		set name=#{role.name}
+		where id=#{role.id}
+	</update>
+	<select id="findRole2" resultType="com.zrkc.crm.model.Role">
+		select id,name 
+		from comp_role
+		where 1=1 
+		<if test="role.name!=null and role.name!=''">
+			and name like concat('%',#{role.name},'%')
+		</if>
+		limit #{pager.from},#{pager.pageSize}
+	
+	</select>
+	<select id="countRole2" resultType="int">
+		select count(*) 
+		from comp_role
+		where 1=1 
+		<if test="role.name!=null and role.name!=''">
+			and name like concat('%',#{role.name},'%')
+		</if>
+	</select>
+
+</mapper>
